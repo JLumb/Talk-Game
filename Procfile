@@ -1,0 +1,1 @@
+web: gunicorn talk_game.wsgi
