@@ -8,7 +8,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 class Post(models.Model):
     """  Model for each post that is created """
     title = models.CharField(max_length=100, unique=True)
-    slug = SlugField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='author_posts')
     updated_on = models.DateTimeField(auto_now=True)
@@ -18,7 +18,7 @@ class Post(models.Model):
     likes = models.ManyToManyField(User, blank=True, related_name='post_likes')
 
     class Meta:
-        ordering = ['-created']
+        ordering = ["-created_on"]
 
     def __str__(self):
         return self.title
@@ -35,8 +35,6 @@ class Comment(models.Model):
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
 
-    class Meta:
-        ordering = ['created']
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
