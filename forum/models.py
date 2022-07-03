@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-STATUS = ((0, "Draft"), (1, "Published"))
-
 
 class Post(models.Model):
     """  Model for each post that is created """
@@ -15,7 +13,8 @@ class Post(models.Model):
     content = models.TextField()
     post_image = CloudinaryField('image', default='placeholder')
     created_on = models.DateTimeField(auto_now_add=True)
-    likes = models.ManyToManyField(User, blank=True, related_name='post_likes')
+    rating = models.ManyToManyField(
+        User, blank=True, related_name='post_rating')
 
     class Meta:
         ordering = ["-created_on"]
@@ -23,8 +22,6 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-    def number_of_likes(self):
-        return self.likes.count()
 
 
 class Comment(models.Model):
@@ -34,7 +31,6 @@ class Comment(models.Model):
         Post, on_delete=models.CASCADE, related_name='comments')
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
-
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
