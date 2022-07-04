@@ -23,7 +23,6 @@ class Post(models.Model):
     post_image = CloudinaryField('image', default='placeholder')
     created_on = models.DateTimeField(auto_now_add=True)
     genre = models.CharField(max_length=100)
-    
 
     class Meta:
         ordering = ["-created_on"]
@@ -41,4 +40,4 @@ class Comment(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Comment {self.body} by {self.name}"
+        return f"Comment {self.body} by {self.author}"
