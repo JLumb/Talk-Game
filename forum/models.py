@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 
-class Category(models.Model):
+class Genre(models.Model):
     genre = models.CharField(max_length=100, unique=True)
 
 
@@ -23,7 +23,7 @@ class Post(models.Model):
     content = models.TextField()
     post_image = CloudinaryField('image', default='placeholder')
     created_on = models.DateTimeField(auto_now_add=True)
-    category = models.CharField(max_length=100)
+    genre = models.CharField(max_length=100)
     
 
     class Meta:
