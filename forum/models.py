@@ -6,7 +6,6 @@ from cloudinary.models import CloudinaryField
 class Genre(models.Model):
     genre = models.CharField(max_length=100, unique=True)
 
-
     class Meta:
         verbose_name_plural = "Categories"
 
