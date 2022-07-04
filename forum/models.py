@@ -3,25 +3,34 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 
+class Category(models.Model):
+    genre = models.CharField(max_length=100, unique=True)
+
+
+    class Meta:
+        verbose_name_plural = "Categories"
+
+    def __str__(self):
+        return self.genre
+
+
 class Post(models.Model):
     """  Model for each post that is created """
     title = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=100, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='author_posts')
-    updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     post_image = CloudinaryField('image', default='placeholder')
     created_on = models.DateTimeField(auto_now_add=True)
-    rating = models.ManyToManyField(
-        User, blank=True, related_name='post_rating')
+    category = models.CharField(max_length=100)
+    
 
     class Meta:
         ordering = ["-created_on"]
 
     def __str__(self):
         return self.title
-
 
 
 class Comment(models.Model):
