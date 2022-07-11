@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from forum import views
 
+
 urlpatterns = [
     path('', views.LoginPage, name='login'),
     path('admin/', admin.site.urls),
@@ -24,4 +25,10 @@ urlpatterns = [
     path('register', views.RegisterPage, name='register'),
     path('logout/', views.LogoutUser, name='logout'),
     path('home/', views.home, name='home'),
+    path('about/', views.about, name='about'),
+    path('battle_royale/', views.battle_royale, name='battle_royale'),
+    path('sports/', views.sports, name='sports'),
+    path('mmorpg/', views.mmorpg, name='mmorpg'),
+    path('fps/', views.fps, name='fps'),
+
 ]

@@ -15,7 +15,7 @@ def RegisterPage(request):
             form.save()
             user = form.cleaned_data.get('username')
             messages.success(
-                request, 'Profile successfully created for' + user)
+                request, 'Profile successfully created for' + '' + user)
             return redirect('login')
 
     context = {'form': form}
@@ -35,7 +35,7 @@ def LoginPage(request):
             return redirect('home')
         else:
             messages.info(request, 'Username OR password is incorrect')
-            return render(request, 'accounts/login.html', context)
+            return render(request, 'accounts/login.html', )
     context = {}
     
     return render(request, 'accounts/login.html', context)
@@ -50,3 +50,28 @@ def LogoutUser(request):
 def home(request):
     context = {}
     return render(request, 'accounts/home.html', context)
+
+
+def battle_royale(request):
+    context = {}
+    return render(request, 'pages/battle_royale.html', context)
+
+
+def sports(request):
+    context = {}
+    return render(request, 'pages/sports.html', context)
+
+
+def mmorpg(request):
+    context = {}
+    return render(request, 'pages/mmorpg.html', context)
+
+
+def fps(request):
+    context = {}
+    return render(request, 'pages/fps.html', context)
+
+
+def about(request):
+    context = {}
+    return render(request, 'pages/about.html', context)
