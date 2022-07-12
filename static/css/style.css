@@ -1,6 +1,4 @@
-* {
-    font-family: 'Helvetica', sans-serif;
-}
+
 
 
 body,
@@ -12,6 +10,7 @@ html {
 
 }
 
+/* css for log in and registration pages*/
 
 .hello-msg {
     font-size: 18px;
