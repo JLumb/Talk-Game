@@ -52,24 +52,9 @@ def home(request):
     return render(request, 'accounts/home.html', context)
 
 
-def battle_royale(request):
+def add_post(request):
     context = {}
-    return render(request, 'pages/battle_royale.html', context)
-
-
-def sports(request):
-    context = {}
-    return render(request, 'pages/sports.html', context)
-
-
-def mmorpg(request):
-    context = {}
-    return render(request, 'pages/mmorpg.html', context)
-
-
-def fps(request):
-    context = {}
-    return render(request, 'pages/fps.html', context)
+    return render(request, 'accounts/add_post.html', context)
 
 
 def about(request):
