@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
-from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+from .models import Post
 from .forms import RegistrationForm
-
 
 
 def RegisterPage(request):
@@ -48,7 +48,10 @@ def LogoutUser(request):
 
 
 def home(request):
+    model = Post
+    template_name = 'home.html'
     context = {}
+
     return render(request, 'accounts/home.html', context)
 
 

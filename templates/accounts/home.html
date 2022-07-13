@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% for post in object_list %}
+<ul>
+<li> {{ post.title }} - {{ post.author }} - {{ post.genre }}</li>
+</ul>
 
+{% endfor %}
 
 {% endblock %}
