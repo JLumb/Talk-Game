@@ -16,11 +16,10 @@ class Genre(models.Model):
 class Post(models.Model):
     """  Model for each post that is created """
     title = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(max_length=100, unique=True)
+    slug = models.CharField(max_length=100, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='author_posts')
     content = models.TextField()
-    post_image = CloudinaryField('image', default='placeholder')
     created_on = models.DateTimeField(auto_now_add=True)
     genre = models.CharField(max_length=100)
 
@@ -28,7 +27,7 @@ class Post(models.Model):
         ordering = ["-created_on"]
 
     def __str__(self):
-        return self.title
+        return self.title + str(self.author)
 
 
 class Comment(models.Model):

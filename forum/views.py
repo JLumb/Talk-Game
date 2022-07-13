@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
-from django.views import generic
+from django.views.generic import ListView, DetailView
 from django.contrib import messages
-from .models import Post, Genre
-from .forms import RegistrationForm
 from django.contrib.auth import authenticate, login, logout
+from .forms import RegistrationForm
+
 
 
 def RegisterPage(request):
@@ -53,6 +53,7 @@ def home(request):
 
 
 def add_post(request):
+
     context = {}
     return render(request, 'accounts/add_post.html', context)
 

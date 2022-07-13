@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Post, Genre
+from .models import Genre
 
 
 genre_choices = Genre.objects.all().values_list('genre', 'genre')
@@ -17,18 +17,3 @@ class RegistrationForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2']
 
-
-class PostForm(forms.ModelForm):
-    class Meta:
-        model = Post
-        fields = ('title', 'slug', 'author', 'genre',)
-
-        items = {
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'slug': forms.TextInput(attrs={'class': 'form-control'}),
-            'author': forms.Select(attrs={'class': 'form-control'}),
-            'genre': forms.Select(choices=genre_list, attrs={
-                'class': 'form-control'}),
-
-
-        }
