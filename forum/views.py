@@ -49,10 +49,7 @@ def LogoutUser(request):
 
 
 def home(request):
-    model = Post
-    template_name = 'home.html'
     context = {}
-
     return render(request, 'accounts/home.html', context)
 
 
@@ -62,31 +59,20 @@ def about(request):
 
 
 @login_required(login_url='login')
-def add_post(request):
-    """
-    This view (for logged-in users) lets users create a new post.
-    """
+def addPost(request):
     form = PostForm()
 
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)
-        # request.FILES necessary so that file is submitted
-        # also required to add enctype to the form
 
         if form.is_valid():
 
             post = form.save(commit=False)
             post.author = request.user
-            try:
-                post.save()
-                messages.success(
+            post.save()
+            messages.success(
                     request, 'Your post was created successfully!')
-                return redirect('home')
-            except Exception as E:
-                print(E)
-                messages.error(
-                    request,
-                    "Make sure to check all sections are filled in correctly")
+            return redirect('home')
 
     context = {'form': form}
-    return render(request, 'accounts/home.html', context)
+    return render(request, 'accounts/add_post.html', context)
