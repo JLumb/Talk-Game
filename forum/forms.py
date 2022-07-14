@@ -21,6 +21,6 @@ class RegistrationForm(UserCreationForm):
 class PostForm(ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'genre', 'content')
+        fields = ('title', 'slug', 'genre', 'content')
 
 
