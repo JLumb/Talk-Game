@@ -4,18 +4,13 @@
 
 <h1>Talk Game Posts</h1>
 
-<div class="col-12  left">
-    <div class="row">
+
         {% for post in post_list %}
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <p>{{ post.title }}</p>
-                    <p>{{ post.author }}</p>
-                    <p>{{ post.genre }}</p>
-                </div>
-            </div>
-        </div>
+        
+        <p>{{ post.title }}</p>
+        <p>{{ post.author }}</p>
+        <p>{{ post.genre }}</p>
+       
 
 
         {% endfor %}
