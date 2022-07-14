@@ -41,8 +41,14 @@
 
                 </ul>
             </div>
+            {% if request.user.is_authenticated %}
             <span class="hello-msg text-white">{{request.user}}</span>
             <span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+            {% else %}
+            <span><a class="nav-link text-light text-center" href="{% url 'login' %}">Login/Register</a>
+            </span>
+            {% endif %}
+
         </nav>
     </header>
 

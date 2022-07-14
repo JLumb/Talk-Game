@@ -44,7 +44,7 @@ def LoginPage(request):
 def LogoutUser(request):
 
     logout(request)
-    return redirect('login')
+    return redirect('home')
 
 
 def home(request):
