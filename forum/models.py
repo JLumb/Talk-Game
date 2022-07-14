@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django_extensions.db.fields import AutoSlugField
 
 
 class Genre(models.Model):
@@ -16,7 +17,7 @@ class Genre(models.Model):
 class Post(models.Model):
     """  Model for each post that is created """
     title = models.CharField(max_length=100, unique=True)
-    slug = models.CharField(max_length=100, unique=True)
+    slug = AutoSlugField(populate_from=['title'])
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='author_posts')
     content = models.TextField()
