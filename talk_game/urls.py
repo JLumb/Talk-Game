@@ -10,6 +10,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('register', views.RegisterPage, name='register'),
     path('logout/', views.LogoutUser, name='logout'),
-    path('about/', views.about, name='about'),
     path('add_post/', views.addPost, name='add_post'),
 ]
