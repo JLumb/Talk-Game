@@ -56,6 +56,10 @@ class postList(ListView):
     template_name = 'post_list.html'
 
 
+class postView(DetailView):
+    model = Post
+    template_name = 'post_view.html'
+
 
 @login_required(login_url='login')
 def addPost(request):

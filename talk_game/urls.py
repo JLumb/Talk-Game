@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from forum import views
-from forum.views import postList
+from forum.views import postList, postView
 
 
 urlpatterns = [
@@ -13,4 +13,6 @@ urlpatterns = [
     path('register', views.RegisterPage, name='register'),
     path('logout/', views.LogoutUser, name='logout'),
     path('add_post/', views.addPost, name='add_post'),
+    path('post_view/<int:pk>', postView.as_view(), name='post_view'),
+    
 ]
