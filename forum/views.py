@@ -49,8 +49,9 @@ def LogoutUser(request):
 
 
 def home(request):
-    context = {}
-    return render(request, 'accounts/home.html')
+    posts = Post.objects.all()
+    context = {'posts': posts}
+    return render(request, 'accounts/home.html', context)
 
 
 

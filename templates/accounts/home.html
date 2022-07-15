@@ -4,17 +4,16 @@
 
 <h1>Talk Game Posts</h1>
 
-
-        {% for post in post_list %}
-        
-        <p>{{ post.title }}</p>
-        <p>{{ post.author }}</p>
-        <p>{{ post.genre }}</p>
-       
+{% for post in posts %}
 
 
-        {% endfor %}
-    </div>
-</div>
+<ul>
+    <li>{{ post.title }} - {{ post.genre }} - {{ post.author }}<br>
+        {{ post.created_on }}
+    </li>
+</ul>
+
+{% endfor %}
+
 
 {% endblock %}

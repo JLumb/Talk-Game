@@ -4,16 +4,6 @@ from cloudinary.models import CloudinaryField
 from django_extensions.db.fields import AutoSlugField
 
 
-class Genre(models.Model):
-    genre = models.CharField(max_length=100, unique=True)
-
-    class Meta:
-        verbose_name_plural = "Categories"
-
-    def __str__(self):
-        return self.genre
-
-
 class Post(models.Model):
     """  Model for each post that is created """
     title = models.CharField(max_length=100, unique=True)
@@ -29,6 +19,16 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title + ' | ' + str(self.author)
+
+
+class Genre(models.Model):
+    genre = models.CharField(max_length=100, unique=True)
+
+    class Meta:
+        verbose_name_plural = "Categories"
+
+    def __str__(self):
+        return self.genre
 
 
 class Comment(models.Model):
