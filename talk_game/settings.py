@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'forum',
     'crispy_forms',
+    'embed_video',
 ]
 
 MIDDLEWARE = [

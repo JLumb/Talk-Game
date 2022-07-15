@@ -3,7 +3,7 @@ from django.views.generic import ListView, DetailView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .models import Post
+from .models import Post, Video
 from .forms import RegistrationForm, PostForm
 
 
@@ -38,7 +38,6 @@ def LoginPage(request):
             messages.info(request, 'Username OR password is incorrect')
             return render(request, 'accounts/login.html', )
     context = {}
-    
     return render(request, 'accounts/login.html', context)
 
 
@@ -49,8 +48,8 @@ def LogoutUser(request):
 
 
 def home(request):
-    context = {}
-    return render(request, 'accounts/home.html', context)
+    videos = Video.objects.all()
+    return render(request, 'accounts/home.html', context={'videos':videos})
 
 
 class postList(ListView):

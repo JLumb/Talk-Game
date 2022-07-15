@@ -12,6 +12,11 @@ body {
 
 }
 
+ /* css for the home page  */
+
+#intro {
+    font-size: x-large;
+}
 /* css for log in and registration pages*/
 
 .hello-msg {

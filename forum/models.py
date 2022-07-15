@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from embed_video.fields import EmbedVideoField
 from cloudinary.models import CloudinaryField
 from django_extensions.db.fields import AutoSlugField
 
@@ -19,6 +20,14 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title + ' | ' + str(self.author)
+
+
+class Video(models.Model):
+    title = models.CharField(max_length=50)
+    url = EmbedVideoField()
+
+    def __str__(self):
+        return str(self.title)
 
 
 class Genre(models.Model):
