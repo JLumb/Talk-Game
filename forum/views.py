@@ -49,9 +49,13 @@ def LogoutUser(request):
 
 
 def home(request):
-    posts = Post.objects.all()
-    context = {'posts': posts}
+    context = {}
     return render(request, 'accounts/home.html', context)
+
+
+class postList(ListView):
+    model = Post
+    template_name = 'post_list.html'
 
 
 

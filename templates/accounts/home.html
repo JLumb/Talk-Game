@@ -2,18 +2,9 @@
 
 {% block content %}
 
-<h1>Talk Game Posts</h1>
-
-{% for post in posts %}
+<h1 class="text-lg-center">Welcome to Talk Game</h1>
 
 
-<ul>
-    <li>{{ post.title }} - {{ post.genre }} - {{ post.author }}<br>
-        {{ post.created_on }}
-    </li>
-</ul>
-
-{% endfor %}
 
 
 {% endblock %}

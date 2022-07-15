@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Talk Game Posts</h1>
+
+{% for post in object_list %}
+
+
+<ul>
+    <li>{{ post.title }} - {{ post.genre }} - {{ post.author }}<br>
+        {{ post.created_on }}
+    </li>
+    <hr />
+</ul>
+
+
+
+{% endfor %}
+
+
+{% endblock %}
