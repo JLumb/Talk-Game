@@ -2,7 +2,6 @@ from django.contrib import admin
 from .models import Post, Comment, Genre, Video
 
 
-@admin.register(Video)
 @admin.register(Genre)
 @admin.register(Post)
 @admin.register(Comment)

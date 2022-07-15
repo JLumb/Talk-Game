@@ -22,14 +22,6 @@ class Post(models.Model):
         return self.title + ' | ' + str(self.author)
 
 
-class Video(models.Model):
-    title = models.CharField(max_length=50)
-    url = EmbedVideoField()
-
-    def __str__(self):
-        return str(self.title)
-
-
 class Genre(models.Model):
     genre = models.CharField(max_length=100, unique=True)
 

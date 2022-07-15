@@ -93,3 +93,18 @@ body {
     color: #fff;
 }
 
+
+div.view {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+iframe {
+     margin-top: 100px;
+     width: 560px; 
+     height: 315px;
+}
+
+

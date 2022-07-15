@@ -3,7 +3,7 @@ from django.views.generic import ListView, DetailView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .models import Post, Video
+from .models import Post
 from .forms import RegistrationForm, PostForm
 
 
@@ -48,8 +48,7 @@ def LogoutUser(request):
 
 
 def home(request):
-    videos = Video.objects.all()
-    return render(request, 'accounts/home.html', context={'videos':videos})
+    return render(request, 'accounts/home.html')
 
 
 class postList(ListView):
