@@ -56,6 +56,7 @@ def home(request):
 class postList(ListView):
     model = Post
     template_name = 'post_list.html'
+    paginate_by = 6
 
 
 class postView(DetailView):

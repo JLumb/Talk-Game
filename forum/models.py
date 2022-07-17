@@ -21,6 +21,7 @@ class Post(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
+    likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
 
     class Meta:
         ordering = ["-created_on"]
