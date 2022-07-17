@@ -8,7 +8,7 @@
 
 
 <ul>
-    <li> <a href="{% url 'post_view' post.pk %}">{{ post.title }} - {{ post.author }}</a><br>
+    <li> <a href="{% url 'post_view' post.pk %}">{{ post.title }} -  {{ post.genre }} - {{ post.author }}</a><br>
 
         {{ post.created_on }} {% if user.id == post.author.id %} <button class="btn btn-dark btn-sm"><a
                 href="{% url 'edit_post' post.pk %}">Edit Post</a></button> <button class="btn btn-dark btn-sm"><a

@@ -49,6 +49,7 @@ def LogoutUser(request):
 
 
 def home(request):
+    context = {}
     return render(request, 'accounts/home.html')
 
 
@@ -92,3 +93,11 @@ class deletePost(DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
+
+
+def search_results(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        return render(request, 'search_results.html', {'searched': searched})
+    else:
+        return render(request, 'search_results.html', {})

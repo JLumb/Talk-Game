@@ -43,8 +43,15 @@
                         <a class="nav-link text-white" href="{% url 'add_post' %}">Create Post</a>
                     </li>
                     {% endif %}
+
                 </ul>
+                <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'search_results' %}">
+                    {% csrf_token %}
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search" name="searched">
+                    <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+                </form>
             </div>
+
             {% if request.user.is_authenticated %}
             <span class="hello-msg text-white">{{request.user}}</span>
             <span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>

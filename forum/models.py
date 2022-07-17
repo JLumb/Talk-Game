@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
 from django_extensions.db.fields import AutoSlugField
 from django.urls import reverse
 
@@ -31,8 +30,8 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('home')
-    
-    
+
+
 class Comment(models.Model):
     """ Model to comment on posts """
     author = models.ForeignKey(User, on_delete=models.CASCADE)
