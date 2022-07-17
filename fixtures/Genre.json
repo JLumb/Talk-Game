@@ -1,0 +1,1 @@
+[{"model": "forum.genre", "pk": 1, "fields": {"genre": "First Person Shooter"}}, {"model": "forum.genre", "pk": 2, "fields": {"genre": "Battle Royale"}}, {"model": "forum.genre", "pk": 3, "fields": {"genre": "Sports"}}, {"model": "forum.genre", "pk": 4, "fields": {"genre": "MMORPG's"}}, {"model": "forum.genre", "pk": 5, "fields": {"genre": "Co-op"}}]

@@ -9,7 +9,7 @@
 
 <ul>
     <li> <a href="{% url 'post_view' post.pk %}">{{ post.title }} - {{ post.author }}</a><br>
-        {{ post.created_on }}
+        {{ post.created_on }} <button  class="btn btn-dark btn-sm"><a href="{% url 'edit_post' post.pk %}">Edit Post</a></button> <button  class="btn btn-dark btn-sm" ><a href="{% url 'delete_post' post.pk %}">Delete</a></button>
     </li>
     <hr />
 </ul>

@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import Post
 from .forms import RegistrationForm, PostForm
+from django.urls import reverse_lazy
 
 
 def RegisterPage(request):
@@ -79,3 +80,15 @@ def addPost(request):
 
     context = {'form': form}
     return render(request, 'accounts/add_post.html', context)
+
+
+class editPost(UpdateView):
+    model = Post
+    template_name = 'edit_post.html'
+    fields = ['title', 'genre', 'content']
+
+
+class deletePost(DeleteView):
+    model = Post
+    template_name = 'delete_post.html'
+    success_url = reverse_lazy('home')
