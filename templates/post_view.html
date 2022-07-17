@@ -7,6 +7,17 @@
 <hr/>
 <br>
 {{ post.content }}
+<br>
+<br>
+<br>
+<hr/>
+
+{% if request.user.is_authenticated %}
+    {% if user.id == post.author.id %}
+  <button  class="btn btn-dark btn-sm" ><a href="{% url 'delete_post' post.pk %}">Delete</a></button>
+    {% endif %}
+
+{% endif %}
 
 
 {% endblock %}

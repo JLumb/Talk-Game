@@ -4,6 +4,9 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
+
+{% if user.id == post.author.id %}
 <h1>DELETE POST</h1>
 <br>
 <br>
@@ -17,9 +20,15 @@
     <strong>Are you Sure?</strong><br>
     <br>
     <br>
-    <hr/>
+    <hr />
     <button type="submit" class="btn btn-dark">Delete Post</button>
 </form>
+{% else %}
+<h1 class="text-lg-center">You do not have access to this page</h1>
+
+{% endif %}
+
+{% endif %}
 
 
 

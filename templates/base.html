@@ -38,10 +38,11 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{% url 'post_list' %}">View Posts</a>
                     </li>
+                    {% if request.user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{% url 'add_post' %}">Create Post</a>
                     </li>
-                    
+                    {% endif %}
                 </ul>
             </div>
             {% if request.user.is_authenticated %}
