@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponseRedirect
 from django.contrib import messages
 from .models import Post
 from .forms import RegistrationForm, PostForm
@@ -49,7 +50,6 @@ def LogoutUser(request):
 
 
 def home(request):
-    context = {}
     return render(request, 'accounts/home.html')
 
 
@@ -62,6 +62,18 @@ class postList(ListView):
 class postView(DetailView):
     model = Post
     template_name = 'post_view.html'
+
+
+def postLike(request, pk):
+
+    post = Post.objects.get(id=pk)
+
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+    else:
+        post.likes.add(request.user)
+
+    return HttpResponseRedirect(reverse('post_view', args=[str(pk)]))
 
 
 @login_required(login_url='login')
